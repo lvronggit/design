@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kedacom.design</groupId>
+    <artifactId>desgin</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-BEGIN</version>
+    <modules>
+        <module>strategy</module>
+        <module>manythread</module>
+        <module>ioandfile</module>
+        <module>datastructure</module>
+        <module>nio</module>
+        <module>rabbitmq</module>
+        <module>refactoring</module>
+        <module>springwatch</module>
+        <module>bio</module>
+        <module>base</module>
+        <module>common</module>
+        <module>futuretask</module>
+        <module>fanxing</module>
+    </modules>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
