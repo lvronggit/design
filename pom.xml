@@ -22,6 +22,7 @@
         <module>common</module>
         <module>futuretask</module>
         <module>fanxing</module>
+        <module>kafka</module>
     </modules>
 
 
