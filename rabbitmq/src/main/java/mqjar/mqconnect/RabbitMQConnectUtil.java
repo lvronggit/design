@@ -19,7 +19,7 @@ public class RabbitMQConnectUtil {
     private List<String> routingkeys;
     private Map<String, ReceiveContent> receiveContentMap;
     // 单例锁
-    private static Object object = new Object();
+    private static final Object object = new Object();
 
     private volatile static RabbitMQConnectUtil rabbitMQConnectUtil;
     private ConnectionFactory connectionFactory ;

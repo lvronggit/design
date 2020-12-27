@@ -3,14 +3,15 @@ package mqclient;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
 import static mqclient.Producer.QUEUE_NAME;
 import static mqclient.Producer.TASK_QUEUE_NAME;
 
 public class Consumer {
-    private Channel channel;
-    private Connection conn;
+    private final Channel channel;
+    private final Connection conn;
 
     public Consumer() throws IOException, TimeoutException {
         Common common = new Common();
@@ -22,7 +23,7 @@ public class Consumer {
         channel.queueDeclare(QUEUE_NAME, false , false ,false,null);
         // 接收消息的回调函数
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println("接收到消息"+consumerTag);
             System.out.println(" [x] Received '" + message + "'");
         };
@@ -36,7 +37,7 @@ public class Consumer {
         // 一次只接收一条消息
         channel.basicQos(1);
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
 
 
             try {
@@ -64,7 +65,7 @@ public class Consumer {
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(" [x] Received '" + message + "'");
         };
 
