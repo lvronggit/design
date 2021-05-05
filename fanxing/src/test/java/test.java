@@ -14,7 +14,5 @@ public class test {
 
         System.out.println(Ensemble.DUTE.mumber());
 
-        Text text = new Text();
-        text.apply(EnumSet.of(Text.Style.HK, Text.Style.JK));
     }
 }

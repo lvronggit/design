@@ -13,7 +13,9 @@ public class BuffDemo {
      * ShortBuffer
      */
     public static void main(String[] args) {
-        ByteBuffer bf = ByteBuffer.allocate(10);
+
+        ByteBuffer.allocateDirect(100);
+        ByteBuffer bf = ByteBuffer.allocate(20);
         bf.put((byte) 1);
         bf.put((byte) 11);
         bf.put((byte) 111);
@@ -27,6 +29,7 @@ public class BuffDemo {
         System.out.println(bf);
         bf.flip();
         System.out.println(bf);
+        System.out.println(bf.get());
         System.out.println(bf.get());
         System.out.println(bf.position());
 

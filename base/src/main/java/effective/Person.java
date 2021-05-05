@@ -9,7 +9,7 @@ import java.util.TimeZone;
  */
 public class Person {
 
-    private final Date birthDay;
+    private final Date birthDay = new Date();
     private static final Date BOOM_START;
     private static final Date BOOM_END;
     static {

@@ -1,4 +1,4 @@
-package jvm.test;
+package vm.test;
 
 /**
  *
