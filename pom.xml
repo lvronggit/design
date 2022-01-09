@@ -23,6 +23,7 @@
         <module>fanxing</module>
         <module>kafka</module>
         <module>performance</module>
+        <module>jvmstudt</module>
     </modules>
 
 
