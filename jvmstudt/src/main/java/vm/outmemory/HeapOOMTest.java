@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * -Xms20M
- * -Xmx20M
- * -Xmn10M
- * -XX:+HeapDumpOnOutOfMemoryError
- *
+ * -Xms20M -Xmx20M -Xmn10M -XX:+HeapDumpOnOutOfMemoryError
+ * <p>
  * 测试堆溢出
  */
 public class HeapOOMTest {
@@ -18,8 +15,7 @@ public class HeapOOMTest {
     // -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
     public static void main(String[] args) {
         try {
-          //  Thread.sleep(10000);
-
+            //  Thread.sleep(10000);
             fillHeap(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -31,7 +27,7 @@ public class HeapOOMTest {
         List<Obj> list = new ArrayList<Obj>();
 
         for (int i = 0; i < num; i++) {
-         //   Thread.sleep(50);
+            //   Thread.sleep(50);
             list.add(new Obj());
         }
         System.gc();

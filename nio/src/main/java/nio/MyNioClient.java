@@ -18,7 +18,7 @@ public class MyNioClient {
         this.selector = Selector.open();
         SocketChannel clientChannel = SocketChannel.open();
         clientChannel.configureBlocking(false);
-        clientChannel.connect(new InetSocketAddress("172.16.130.191",port));
+        clientChannel.connect(new InetSocketAddress("localhost",port));
         clientChannel.register(selector, SelectionKey.OP_CONNECT | SelectionKey.OP_READ | SelectionKey.OP_WRITE);
         while (true){
             selector.select();

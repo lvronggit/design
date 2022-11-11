@@ -12,7 +12,6 @@ public class Server {
 
        while (true){
            Socket accept = serverSocket.accept();
-
            InputStream inputStream = accept.getInputStream();
            OutputStream outputStream = accept.getOutputStream();
            byte[] bytes = new byte[1024];

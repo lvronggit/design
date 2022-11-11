@@ -24,6 +24,8 @@
         <module>kafka</module>
         <module>performance</module>
         <module>jvmstudt</module>
+        <module>net</module>
+        <module>springstudy</module>
     </modules>
 
 
@@ -37,6 +39,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
         </dependency>
     </dependencies>
 
