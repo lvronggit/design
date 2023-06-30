@@ -18,7 +18,6 @@ public class tst {
         System.out.println(submit1.get());
 
         System.out.println("执行结束");
-        AbstractQueuedSynchronizer
     }
 
 
