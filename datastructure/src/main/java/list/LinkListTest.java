@@ -1,6 +1,6 @@
 package list;
 
-public class LinkList {
+public class LinkListTest {
 
     private Link link;
 
@@ -29,11 +29,11 @@ public class LinkList {
     }
 
     public static void main(String[] args) {
-        LinkList linkList = new LinkList();
-        linkList.insert(new Link(9.0,null));
-        linkList.insert(new Link(8.0,null));
-        System.out.println(linkList.toString());
-        Link oo = linkList.getLink();
+        LinkListTest linkListTest = new LinkListTest();
+        linkListTest.insert(new Link(9.0,null));
+        linkListTest.insert(new Link(8.0,null));
+        System.out.println(linkListTest.toString());
+        Link oo = linkListTest.getLink();
         System.out.println(oo);
 
 

@@ -18,6 +18,6 @@ public class ProtrtyQueue {
         objects.offer("vv");
 
 
-        objects.poll()
+        objects.poll();
     }
 }
