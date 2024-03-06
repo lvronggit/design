@@ -9,21 +9,24 @@ import java.net.Socket;
 public class SelfServer {
     public static final int port = 5200;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         ServerSocket serverSocket = new ServerSocket(5200);
         Socket socket = null;
         while ((socket = serverSocket.accept()) != null) {
-            InputStream inputStream = socket.getInputStream();
-            byte[] bytes = new byte[1024];
-            inputStream.read(bytes);
-            String clientReq = new String(bytes);
-            System.out.println(clientReq);
+        int i = 0;
 
-            OutputStream outputStream = socket.getOutputStream();
+            while (true){
+                InputStream inputStream = socket.getInputStream();
+                byte[] bytes = new byte[1024];
+                inputStream.read(bytes);
+                String clientReq = new String(bytes);
+                System.out.println(clientReq);
 
-            outputStream.write(("server+" + clientReq).getBytes());
-
-            outputStream.flush();
+                OutputStream outputStream = socket.getOutputStream();
+                Thread.sleep(1000);
+                outputStream.write((String.valueOf(i++)).getBytes());
+                outputStream.flush();
+            }
         }
 
 

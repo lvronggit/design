@@ -1,5 +1,10 @@
 package bindtree;
 
+import org.apache.commons.collections.CollectionUtils;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * 二叉树
  */
@@ -61,6 +66,73 @@ public class Tree {
         dispaly(node.rightChild);
     }
 
+    /**
+     * 堆栈的方式
+     * 中序遍历
+     */
+    public void middleDisplay(Node node) {
+        Node root = node;
+        Stack<Node> stack = new Stack();
+        while (root != null || !stack.empty()) {
+            while (root != null) {
+                // 前序遍历
+                //   System.out.println(root.iData);
+                stack.push(root);
+                root = root.leftChild;
+            }
+            Node pop = stack.pop();
+            System.out.println(pop.iData);
+            root = pop.rightChild;
+        }
+
+    }
+
+    /**
+     * 采用队列存储，先进先出
+     *q  遍历的过程中 将子节点放在队列尾部 进行下次遍历
+     * @param node
+     */
+    public void levelDisplay(Node node) {
+        if (node == null) {
+            return;
+        }
+        LinkedList<Node> nextnodes = new LinkedList();
+        nextnodes.add(node);
+        while (CollectionUtils.isNotEmpty(nextnodes)) {
+            Node next = nextnodes.removeFirst();
+            System.out.println(next.iData);
+            if (next.leftChild != null) {
+                nextnodes.addLast(next.leftChild);
+            }
+            if (next.rightChild != null) {
+                nextnodes.addLast(next.rightChild);
+            }
+        }
+    }
+
+
+    public void lastDisplay(Node node) {
+        Node root = node;
+        Stack<Node> stack = new Stack();
+        while (root != null || !stack.empty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.leftChild;
+            }
+            Node pop = stack.pop();
+            root = pop.rightChild;
+        }
+
+    }
+
+    public void lastDiguiDisplay(Node node) {
+        if (node == null) {
+            return;
+        }
+        lastDiguiDisplay(node.leftChild);
+        lastDiguiDisplay(node.rightChild);
+        System.out.println(node.iData);
+    }
 
     public void detele(int key) {
         /**
@@ -141,16 +213,17 @@ public class Tree {
 
     public static void main(String[] args) {
         Tree tree = new Tree();
-        tree.insert(100, 2);
+        tree.insert(100, 100);
         tree.insert(121, 90);
         tree.insert(109, 22);
         tree.insert(10, 22);
         tree.insert(80, 22);
         tree.insert(79, 212);
-        tree.insert(22,212);
-        tree.insert(222,12);
-        tree.detele(10);
-        tree.detele(79);
-        tree.dispaly(tree.root);
+        tree.insert(22, 212);
+        tree.insert(222, 12);
+        tree.insert(1, 12);
+        tree.insert(2, 12);
+        //  tree.dispaly(tree.root);
+        tree.levelDisplay(tree.root);
     }
 }
