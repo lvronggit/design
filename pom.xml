@@ -21,6 +21,7 @@
         <module>base</module>
         <module>common</module>
         <module>fanxing</module>
+        <module>jdbc</module>
     </modules>
 
 

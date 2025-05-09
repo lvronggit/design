@@ -7,22 +7,30 @@ import java.util.Arrays;
  */
 public class InsertionSort {
 
-    public static int[] sort(int [] sort){
-        for (int i = 0;i< sort.length;i++){
-            for (int j = i+1;j<sort.length;j++){
-                if(sort[i] > sort[j]){
-                    int tem = sort[i];
-                    sort[i] = sort[j];
-                    sort[j] = tem;
+
+    public static int[] insertSort(int[] disorder) {
+        if (disorder.length <= 1) {
+            return disorder;
+        }
+        for (int i = 1; i < disorder.length; i++) {
+            int data = disorder[i];
+            int j = i - 1;
+            for (; j >= 0; j--) {
+                if (data < disorder[j]) {
+                    disorder[j + 1] = disorder[j];
+                } else {
+                    break;
                 }
             }
-
+            // 给未赋值的地方赋值
+            disorder[j + 1] = data;
         }
+        return disorder;
 
-        return sort;
     }
 
+
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(InsertionSort.sort(new int[]{1,12,12121,123,1213,12321})));
+        System.out.println(Arrays.toString(InsertionSort.insertSort(new int[]{23, 999, 888, 1, 12, 12121, 123, 1213, 12321})));
     }
 }
